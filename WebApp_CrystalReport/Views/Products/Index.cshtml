@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<button class="btn btn-primary" style="margin-top:10px" onclick="DownloadReport()">
+    <i class="glyphicon glyphicon-download"></i>Download Report</button>
+<button class="btn btn-success" style="margin-top:10px" onclick="ShowReport()">
+    <i class="glyphicon glyphicon-eye-open"></i>Show Report</button>
+
+<iframe id="show-Report" style="width:100%; height:600px" frameborder="0" scrolling="yes"></iframe>
+
+@section scripts{
+    <script>
+        function DownloadReport() {
+            window.open("/products/downloadReport");
+        }
+        function ShowReport() {
+            $("#show-Report").attr("src", "/products/downloadReport").load();
+        }
+    </script>
+}
